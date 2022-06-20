@@ -1,0 +1,9 @@
+[submodule "Ai_management_backend"]
+	path = Ai_management_backend
+	url = https://github.com/prabal01pathak/Ai_management_backend.git
+[submodule "Ai_management_frontend"]
+	path = Ai_management_frontend
+	url = https://github.com/prabal01pathak/Ai_management_frontend.git
+[submodule "annotation-tool-frontend"]
+	path = annotation-tool-frontend
+	url = https://github.com/prabal01pathak/annotation-tool-frontend.git
