@@ -1,11 +1,30 @@
 version: "3.9"
 services:
+  nginx:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker_setup/nginx/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./docker_serup/nginx:/etc/ngix/conf.d
+    depends_on:
+      - backend
+      - dashboard
+      - landing_page
+    networks:
+      - nginx_network
+
   backend:
     build:
       context: .
       dockerfile: docker_setup/Ai_management_backend/Dockerfile
     ports:
       - "8000:8000"
+    networks:
+      - nginx_network
 
   dashboard:
     build:
@@ -13,6 +32,8 @@ services:
       dockerfile: docker_setup/annotation-tool-frontend/dashboard/Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - nginx_network
 
   landing_page:
     build:
@@ -20,3 +41,12 @@ services:
       dockerfile: docker_setup/annotation-tool-frontend/landing_page/Dockerfile
     ports:
       - "3001:3001"
+    networks:
+      - nginx_network
+
+volumes:
+  static_volume: {}
+
+networks:
+  nginx_network:
+    driver: bridge
