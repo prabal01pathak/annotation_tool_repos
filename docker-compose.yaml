@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker_setup/Ai_management_backend/Dockerfile
+    ports:
+      - "8000:8000"
