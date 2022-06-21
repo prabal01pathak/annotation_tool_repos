@@ -6,3 +6,17 @@ services:
       dockerfile: docker_setup/Ai_management_backend/Dockerfile
     ports:
       - "8000:8000"
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker_setup/annotation-tool-frontend/dashboard/Dockerfile
+    ports:
+      - "3000:3000"
+
+  landing_page:
+    build:
+      context: .
+      dockerfile: docker_setup/annotation-tool-frontend/landing_page/Dockerfile
+    ports:
+      - "3001:3001"
