@@ -7,3 +7,6 @@
 [submodule "annotation-tool-frontend"]
 	path = annotation-tool-frontend
 	url = https://github.com/prabal01pathak/annotation-tool-frontend.git
+[submodule "label-studio"]
+	path = label-studio
+	url = ./label-studio
